@@ -1,0 +1,46 @@
+import csv
+
+# Define the misleading words used in greenwashing
+misleading_words = ['degradeable','made with care', 'plastic free','bio','net zero','climate friendly','carbon neutral','plant based','sustainable', 'eco-friendly', 
+                    'green', 'carbon neutral','natural', 'organic', 'Oxo-degradable', 'environmentally friendly', '100%', 'conscious']
+
+# Create the dataset
+dataset = []
+
+# Iterate over the misleading words and add them to the dataset
+for word in misleading_words:
+    dataset.append({'Word': word})
+
+# Define the filename and fieldnames
+filename = 'misleading_words_dataset.csv'
+
+
+# Write the dataset to a CSV file
+with open(filename, 'w', newline='') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(dataset)
+    
+    import pandas as pd
+
+# Load the dataset containing the misleading words
+df = pd.read_csv('misleading_words_dataset.csv')
+
+# Extract the list of misleading words
+misleading_words = df['Word'].tolist()
+
+# Define the text to be checked
+text = "A classic graphic on Patagonia’s lowest carbon footprint T-shirt, which is made with recycled fabrics. By utilizing fabric scraps and recycled bottles, this tee made with 100% recycled fabric reduces our reliance on virgin materials. Fair Trade Certified™ sewn."
+
+# Check if any of the common words are present in the text
+found_words = []
+for word in misleading_words:
+    if word.lower() in text.lower():
+        found_words.append(word)
+
+# Print the found words
+if found_words:
+    print("Be aware the text contains the following misleading greenwashing word(s):")
+    print(", ".join(found_words))
+else:
+    print("The text does not contain any misleading green washing words, check for recognized certificates")
