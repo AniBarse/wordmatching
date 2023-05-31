@@ -1,8 +1,8 @@
 import csv
 
 # Define the misleading words used in greenwashing
-misleading_words = ['degradeable','made with care', 'plastic free','bio','net zero','climate friendly','carbon neutral','plant based','sustainable', 'eco-friendly', 
-                    'green', 'carbon neutral','natural', 'organic', 'Oxo-degradable', 'environmentally friendly', '100%', 'conscious']
+misleading_words = ['eco','ocean plastic', 'plastic free','bio','net zero','climate friendly','carbon neutral','plant based','sustainable', 'eco-friendly', 
+                    'green', 'carbon neutral','natural', 'organic', 'Oxo-degradable', 'environmentally friendly', 'conscious']
 
 # Create the dataset
 dataset = []
